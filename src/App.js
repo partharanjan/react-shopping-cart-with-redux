@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import CartLayout from "./cart/cart-layout";
+import { ThemeContext, themes } from "./components/contexts/theme.context";
+import { Todo } from "./components/todo";
+import Layout from "./layout/layout";
+
 
 function App() {
+  // default theme is light
+  const [theme, setTheme] = useState(themes.light);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <ThemeContext.Provider value={theme}>
+    //   <div>
+    //     <label>Change Theme To </label>
+    //     <button onClick={()=>{setTheme(themes.light)}}>Light</button>
+    //     <button onClick={()=>{setTheme(themes.dark)}}>Dark</button>
+    //   </div>
+    //   <ShoppingCart />
+    // </ThemeContext.Provider>
+    <Layout>
+      <CartLayout/>
+    </Layout>
   );
 }
 
