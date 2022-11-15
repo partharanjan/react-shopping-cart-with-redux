@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CircularProgress from '@mui/material/CircularProgress';
+import ProductItem from "./shared/product-item";
 export default function Product() {
 
     const [products, setProducts] = useState([]);
@@ -27,7 +28,11 @@ export default function Product() {
         <div>
             <h1>Products</h1>
             {loading && <CircularProgress />}
-            {!loading && <h1>{products.length}</h1>}
+            {
+                products.map(item => {
+                    return <ProductItem key={item.id} product={item} />
+                })
+            }
         </div>
     )
 }
